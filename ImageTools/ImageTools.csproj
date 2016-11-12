@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug64</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA997DD0-BA4D-404C-B387-6997B6EBA9AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ImageTools</RootNamespace>
+    <AssemblyName>ImageTools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\..\AppData\Roaming\Grasshopper\Libraries\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\AForge.NET\IPLab\References\AForge.NET\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\AForge.NET\IPLab\References\AForge.NET\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Vision, Version=2.2.5.0, Culture=neutral, PublicKeyToken=b612fa915eefaa06, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\AForge.NET\Framework\Release\AForge.Vision.dll</HintPath>
+    </Reference>
+    <Reference Include="RhinoCommon">
+      <HintPath>..\..\..\..\..\..\Program Files\Rhinoceros 5.0 (64-bit)\System\RhinoCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Grasshopper">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\McNeel\Rhinoceros\5.0\Plug-ins\Grasshopper (b45a29b1-4343-4035-989e-044e8580d9cf)\0.9.76.0\Grasshopper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GH_IO">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\McNeel\Rhinoceros\5.0\Plug-ins\Grasshopper (b45a29b1-4343-4035-989e-044e8580d9cf)\0.9.76.0\GH_IO.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\Analysis\BlobComponent.cs" />
+    <Compile Include="Components\Create\CreateMultiGradientComponent.cs" />
+    <Compile Include="Components\Draw\Arc2D.cs" />
+    <Compile Include="Components\Draw\Curve2D.cs" />
+    <Compile Include="Components\Draw\DrawShapes.cs" />
+    <Compile Include="Components\Draw\Ellipse2D.cs" />
+    <Compile Include="Components\Draw\HatchPen.cs" />
+    <Compile Include="Components\Draw\Rectangle2D.cs" />
+    <Compile Include="Components\Draw\SolidPen.cs" />
+    <Compile Include="Components\Draw\TexturePen.cs" />
+    <Compile Include="Components\Utilities\CountPixelsComponent.cs" />
+    <Compile Include="Components\Effects\AdjustImageComponent.cs" />
+    <Compile Include="Components\Effects\TintImageComponent.cs" />
+    <Compile Include="Components\Composition\AddBackgroundComponent.cs" />
+    <Compile Include="Components\Composition\AddNumberImageComponent.cs" />
+    <Compile Include="Components\Composition\AddTitleComponent.cs" />
+    <Compile Include="Components\Composition\AddTextImageComponent.cs" />
+    <Compile Include="Components\Create\MatchColorImageComponent.cs" />
+    <Compile Include="Components\Composition\GridImagesComponent.cs" />
+    <Compile Include="Components\Effects\DropShadowComponent.cs" />
+    <Compile Include="Components\Create\GradienImageComponent.cs" />
+    <Compile Include="Components\Create\GenerativeTextureComponent.cs" />
+    <Compile Include="Components\MultiEffects\OverlayModeComponent.cs" />
+    <Compile Include="Components\MultiEffects\MaskImageComponent.cs" />
+    <Compile Include="Components\MultiEffects\ApplyOperationComponent.cs" />
+    <Compile Include="Components\Composition\ArrayImagesComponent.cs" />
+    <Compile Include="Components\Utilities\RangeRGBFilterComponent.cs" />
+    <Compile Include="Components\Utilities\BestFitImageComponent.cs" />
+    <Compile Include="Components\Effects\BlurImageComponent.cs" />
+    <Compile Include="Components\Effects\BrightnessContrastComponent.cs" />
+    <Compile Include="Components\Effects\ApplyFilterComponent.cs" />
+    <Compile Include="Components\Create\ColorImageComponent.cs" />
+    <Compile Include="Components\Utilities\CropImageComponent.cs" />
+    <Compile Include="Components\Analysis\DeconstructImageComponent.cs" />
+    <Compile Include="Components\Analysis\DeconstructRGBAComponent.cs" />
+    <Compile Include="Components\Utilities\FormatImageComponent.cs" />
+    <Compile Include="Components\Utilities\LoadImageComponent.cs" />
+    <Compile Include="Components\Composition\OverlayImagesComponent.cs" />
+    <Compile Include="Components\Utilities\PaddingImageComponent.cs" />
+    <Compile Include="Components\Utilities\ResizeImageComponent.cs" />
+    <Compile Include="Components\Utilities\RotateFlipComponent.cs" />
+    <Compile Include="Components\Utilities\SaveImageComponent.cs" />
+    <Compile Include="Components\Utilities\ScaleImageComponent.cs" />
+    <Compile Include="Components\Util\ImageDrawToolbox.cs" />
+    <Compile Include="Components\Util\ImageCreateToolbox.cs" />
+    <Compile Include="Components\Util\ImageCompositionToolbox.cs" />
+    <Compile Include="Components\Util\ImageAnalysisToolbox.cs" />
+    <Compile Include="Components\Util\ImagesPlugin.cs" />
+    <Compile Include="Components\Util\ImageUtilitiesToolBox.cs" />
+    <Compile Include="Components\Util\MultiImageEffectToolBox.cs" />
+    <Compile Include="Components\Util\SingleImageEffectsToolbox.cs" />
+    <Compile Include="Components\Effects\ImageOpacityComponent.cs" />
+    <Compile Include="Components\Utilities\CopyImageComponent.cs" />
+    <Compile Include="Components\MultiEffects\RGBA_ReplaceChannelComponent.cs" />
+    <Compile Include="Components\Effects\RGBFilterComponent.cs" />
+    <Compile Include="Components\Utilities\SetTransparencyComponent.cs" />
+    <Compile Include="Components\Effects\ThresholdImageComponent.cs" />
+    <Compile Include="Components\MultiEffects\VariableMorphComponent.cs" />
+    <Compile Include="Attributes\GH_ImageAttributes.cs" />
+    <Compile Include="Components\Analysis\ImageViewerComponent.cs" />
+    <Compile Include="Draw\ArcShape.cs" />
+    <Compile Include="Draw\CurveShape.cs" />
+    <Compile Include="Draw\EllipseShape.cs" />
+    <Compile Include="Draw\RectangleShape.cs" />
+    <Compile Include="Draw\Shape2D.cs" />
+    <Compile Include="Draw\ShapeUtil.cs" />
+    <Compile Include="ImageToolsAssembly.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Fraction.cs" />
+    <Compile Include="Utilities\ImageComposition.cs" />
+    <Compile Include="Utilities\ImageConstruct.cs" />
+    <Compile Include="Utilities\ImageFilter.cs" />
+    <Compile Include="Utilities\ImageIterate.cs" />
+    <Compile Include="Utilities\ImageMultiFilter.cs" />
+    <Compile Include="Utilities\ImageShape.cs" />
+    <Compile Include="Utilities\Formats.cs" />
+    <Compile Include="Utilities\Filters.cs" />
+    <Compile Include="Utilities\FormatUtil.cs" />
+    <Compile Include="ImageToolsInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ImageUtil.cs" />
+    <Compile Include="Utilities\Styles.cs" />
+    <Compile Include="Utilities\VignetteSource.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Threshold_Image.png" />
+    <None Include="Resources\Title_Image.png" />
+    <None Include="Resources\Text_Image.png" />
+    <None Include="Resources\Scale_Image.png" />
+    <None Include="Resources\Tint_Image.png" />
+    <None Include="Resources\Viewer_Icon.png" />
+    <None Include="Resources\TextileIcon.png" />
+    <None Include="Resources\Visibility_ICON_.png" />
+    <None Include="Resources\ScaleImage_ICON_4.png" />
+    <None Include="Resources\RotateFlip2_ICON_3.png" />
+    <None Include="Resources\ResizeBestFit_ICON_3.png" />
+    <None Include="Resources\Presentation_ICON.png" />
+    <None Include="Resources\OverlayImage_ICON_3.png" />
+    <None Include="Resources\NewImage_ICON_2.png" />
+    <None Include="Resources\ImageText_ICON_3.png" />
+    <None Include="Resources\ImagePadding_ICON_2.png" />
+    <None Include="Resources\DeconImage_ICON_2.png" />
+    <None Include="Resources\CropImage_ICON.png" />
+    <None Include="Resources\ArrayImages_ICON_2.png" />
+    <None Include="Resources\AutoTitleIcon.png" />
+    <None Include="Resources\ColoriseIcon.png" />
+    <None Include="Resources\DropShadowIcon.png" />
+    <None Include="Resources\ExportImage.png" />
+    <None Include="Resources\Back_Image.png" />
+    <None Include="Resources\Blur_Image.png" />
+    <None Include="Resources\Contrast_Image.png" />
+    <None Include="Resources\DropShadow_Image.png" />
+    <None Include="Resources\Arc_Image.png" />
+    <None Include="Resources\Ellipse_Image.png" />
+    <None Include="Resources\Brush_Image.png" />
+    <None Include="Resources\DrawShape_Image.png" />
+    <None Include="Resources\Curve_Image.png" />
+    <None Include="Resources\Gen_Image.png" />
+    <None Include="Resources\Count_Image.png" />
+    <None Include="Resources\AutoNumber_Image.png" />
+    <None Include="Resources\Cut_Image.png" />
+    <None Include="Resources\Filter_Image.png" />
+    <None Include="Resources\FilterSingle_Image.png" />
+    <None Include="Resources\Effect_Image.png" />
+    <None Include="Resources\Format_Image.png" />
+    <None Include="Resources\Adjust_Image.png" />
+    <None Include="Resources\Blob_Image.png" />
+    <Content Include="Resources\GridImage_ICON.png" />
+    <None Include="Resources\LoadImage.png" />
+    <None Include="Resources\Hatch_Image.png" />
+    <None Include="Resources\Image_Icon_24.png" />
+    <None Include="Resources\Image_Icon_16.png" />
+    <Content Include="Resources\LoadImage_ICON.png" />
+    <None Include="Resources\MatchColorIcon.png" />
+    <None Include="Resources\NumberingIcon.png" />
+    <None Include="Resources\New_Gradient.png" />
+    <None Include="Resources\New_Color.png" />
+    <None Include="Resources\Rotate_Image.png" />
+    <None Include="Resources\SaveImage.png" />
+    <None Include="Resources\Pen_Image.png" />
+    <None Include="Resources\PictureFrame.png" />
+    <None Include="Resources\Rectangle_Image.png" />
+    <None Include="Resources\NewMulti_Gradient.png" />
+    <None Include="Resources\Match_Image.png" />
+    <None Include="Resources\Opacity_Image.png" />
+    <None Include="Resources\RGB_Image.png" />
+    <None Include="Resources\Overlay_Image.png" />
+    <None Include="Resources\Replace_Image.png" />
+    <None Include="Resources\Morph_Image.png" />
+    <None Include="Resources\OpacityPixel_Image.png" />
+    <None Include="Resources\Mask_Image.png" />
+    <Content Include="Resources\SaveImage_ICON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+Erase "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FallbackCulture>en-US</FallbackCulture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug64|AnyCPU'">
+    <StartProgram>C:\Program Files\Rhinoceros 5.0 (64-bit)\System\Rhino.exe</StartProgram>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+</Project>
