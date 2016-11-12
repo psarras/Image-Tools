@@ -18,3 +18,7 @@ C:\Users\spsarras\Desktop\Projects\ImageTools\ImageTools\obj\Debug64\ImageTools.
 C:\AppData\Roaming\Grasshopper\Libraries\ImageTools.dll
 C:\AppData\Roaming\Grasshopper\Libraries\ImageTools.pdb
 C:\Users\Stam\Dropbox\PHD\04_Projects\03_ImagesAnalysed\ImageTools\ImageTools\obj\Debug64\ImageTools.csprojResolveAssemblyReference.cache
+C:\Users\Stam\Dropbox\PHD\04_Projects\03_ImagesAnalysed\GH_Image\ImageTools\obj\Debug64\ImageTools.Properties.Resources.resources
+C:\Users\Stam\Dropbox\PHD\04_Projects\03_ImagesAnalysed\GH_Image\ImageTools\obj\Debug64\ImageTools.csproj.GenerateResource.Cache
+C:\Users\Stam\Dropbox\PHD\04_Projects\03_ImagesAnalysed\GH_Image\ImageTools\obj\Debug64\ImageTools.dll
+C:\Users\Stam\Dropbox\PHD\04_Projects\03_ImagesAnalysed\GH_Image\ImageTools\obj\Debug64\ImageTools.pdb

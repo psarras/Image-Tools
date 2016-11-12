@@ -483,6 +483,26 @@ namespace ImageTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pretty_Gradient {
+            get {
+                object obj = ResourceManager.GetObject("Pretty_Gradient", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PrettyCustom_Gradient {
+            get {
+                object obj = ResourceManager.GetObject("PrettyCustom_Gradient", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Rectangle_Image {
             get {
                 object obj = ResourceManager.GetObject("Rectangle_Image", resourceCulture);

@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Analysis\BlobComponent.cs" />
+    <Compile Include="Components\Create\ColorAutoPalette.cs" />
+    <Compile Include="Components\Create\ColorPalette.cs" />
     <Compile Include="Components\Create\CreateMultiGradientComponent.cs" />
     <Compile Include="Components\Draw\Arc2D.cs" />
     <Compile Include="Components\Draw\Curve2D.cs" />
@@ -137,6 +139,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\ColorUtil.cs" />
     <Compile Include="Utilities\Fraction.cs" />
     <Compile Include="Utilities\ImageComposition.cs" />
     <Compile Include="Utilities\ImageConstruct.cs" />
@@ -187,7 +190,6 @@
     <None Include="Resources\Brush_Image.png" />
     <None Include="Resources\DrawShape_Image.png" />
     <None Include="Resources\Curve_Image.png" />
-    <None Include="Resources\Gen_Image.png" />
     <None Include="Resources\Count_Image.png" />
     <None Include="Resources\AutoNumber_Image.png" />
     <None Include="Resources\Cut_Image.png" />
@@ -197,6 +199,7 @@
     <None Include="Resources\Format_Image.png" />
     <None Include="Resources\Adjust_Image.png" />
     <None Include="Resources\Blob_Image.png" />
+    <None Include="Resources\Gen_Image.png" />
     <Content Include="Resources\GridImage_ICON.png" />
     <None Include="Resources\LoadImage.png" />
     <None Include="Resources\Hatch_Image.png" />
@@ -205,14 +208,11 @@
     <Content Include="Resources\LoadImage_ICON.png" />
     <None Include="Resources\MatchColorIcon.png" />
     <None Include="Resources\NumberingIcon.png" />
-    <None Include="Resources\New_Gradient.png" />
-    <None Include="Resources\New_Color.png" />
     <None Include="Resources\Rotate_Image.png" />
     <None Include="Resources\SaveImage.png" />
     <None Include="Resources\Pen_Image.png" />
     <None Include="Resources\PictureFrame.png" />
     <None Include="Resources\Rectangle_Image.png" />
-    <None Include="Resources\NewMulti_Gradient.png" />
     <None Include="Resources\Match_Image.png" />
     <None Include="Resources\Opacity_Image.png" />
     <None Include="Resources\RGB_Image.png" />
@@ -221,6 +221,11 @@
     <None Include="Resources\Morph_Image.png" />
     <None Include="Resources\OpacityPixel_Image.png" />
     <None Include="Resources\Mask_Image.png" />
+    <None Include="Resources\PrettyCustom_Gradient.png" />
+    <None Include="Resources\Pretty_Gradient.png" />
+    <None Include="Resources\NewMulti_Gradient.png" />
+    <None Include="Resources\New_Color.png" />
+    <None Include="Resources\New_Gradient.png" />
     <Content Include="Resources\SaveImage_ICON.png" />
   </ItemGroup>
   <ItemGroup>
