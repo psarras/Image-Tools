@@ -46,8 +46,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\AForge.NET\Framework\Release\AForge.Vision.dll</HintPath>
     </Reference>
-    <Reference Include="RhinoCommon">
-      <HintPath>..\..\..\..\..\..\Program Files\Rhinoceros 5.0 (64-bit)\System\RhinoCommon.dll</HintPath>
+    <Reference Include="RhinoCommon, Version=5.1.30000.13, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Rhinoceros 5 (64-bit)\System\RhinoCommon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,7 +70,7 @@
     <Compile Include="Components\Create\ColorAutoPalette.cs" />
     <Compile Include="Components\Create\ColorPalette.cs" />
     <Compile Include="Components\Create\CreateMultiGradientComponent.cs" />
-    <Compile Include="Components\Draw\Arc2D.cs" />
+    <Compile Include="Components\Draw\Arc2DComponent.cs" />
     <Compile Include="Components\Draw\Curve2D.cs" />
     <Compile Include="Components\Draw\DrawShapes.cs" />
     <Compile Include="Components\Draw\Ellipse2D.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Components\Draw\Rectangle2D.cs" />
     <Compile Include="Components\Draw\SolidPen.cs" />
     <Compile Include="Components\Draw\TexturePen.cs" />
+    <Compile Include="Components\Utilities\CountIMGColours.cs" />
     <Compile Include="Components\Utilities\CountPixelsComponent.cs" />
     <Compile Include="Components\Effects\AdjustImageComponent.cs" />
     <Compile Include="Components\Effects\TintImageComponent.cs" />

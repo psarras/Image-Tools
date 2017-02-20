@@ -7,16 +7,16 @@ using System.Drawing;
 using ImageTools.Utilities;
 using ImageTools.Properties;
 
-namespace ImageTools.Components
+namespace ImageTools.Components.Utilities
 {
-    /*
-    public class CountPixelsComponent : ImageUtilitiesToolBox
+    public class CountIMGColours : ImageUtilitiesToolBox
     {
         /// <summary>
-        /// Initializes a new instance of the CountPixelsComponent class.
+        /// Initializes a new instance of the CountAllPixels class.
         /// </summary>
-        public CountPixelsComponent()
-          : base("CountPixels", "CountPx", "Count pixels on an image based on the given color")
+        public CountIMGColours()
+          : base("CountPixels", "CountPx",
+                "Count pixels on an image based on the given color")
         {
         }
 
@@ -26,7 +26,6 @@ namespace ImageTools.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("image", "img", "image to manipulate", GH_ParamAccess.item);
-            pManager.AddColourParameter("Colour", "C", "Colour to use for Highlighting", GH_ParamAccess.item, Color.Black);
         }
 
         /// <summary>
@@ -34,7 +33,8 @@ namespace ImageTools.Components
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Pixels", "Px", "Number of Pixels", GH_ParamAccess.item);
+            pManager.AddColourParameter("Color", "C", "Colors Found", GH_ParamAccess.list);
+            pManager.AddIntegerParameter("Frequency", "F", "Number of Pixels", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -45,10 +45,19 @@ namespace ImageTools.Components
         {
             Bitmap img = null;
             DA.GetData(0, ref img);
-            Color C = Color.Black;
-            DA.GetData(1, ref C);
+            Dictionary<int, int> dictionary = ImageUtil.countColor(img);
 
-            DA.SetData(0, ImageUtil.countColorPixels(img, C));
+            List<int> frequency = new List<int>();
+            List<Color> colors = new List<Color>();
+
+            foreach (KeyValuePair<int, int> pair in dictionary)
+            {
+                colors.Add(ImageUtil.fromByte(pair.Key));
+                frequency.Add(pair.Value);
+            }
+
+            DA.SetDataList(0, colors);
+            DA.SetDataList(1, frequency);
         }
 
         /// <summary>
@@ -69,9 +78,7 @@ namespace ImageTools.Components
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("{a214ae83-acf6-4936-a6de-a3543db0ca1a}"); }
+            get { return new Guid("{b7486c70-94d7-4658-8310-330bfdd76200}"); }
         }
     }
-
-*/
 }

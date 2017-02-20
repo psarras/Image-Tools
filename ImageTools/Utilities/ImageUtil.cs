@@ -17,7 +17,7 @@ namespace ImageTools.Utilities
             List<int> widths = new List<int>();
             List<int> heights = new List<int>();
 
-            foreach(Bitmap b in imgs)
+            foreach (Bitmap b in imgs)
             {
                 widths.Add(b.Width);
                 heights.Add(b.Height);
@@ -117,7 +117,7 @@ namespace ImageTools.Utilities
             Bitmap formatIMG = convert(img, PixelFormat.Format32bppArgb);
             ImageStatistics stats = new ImageStatistics(formatIMG);
             return stats.PixelsCountWithoutBlack;
-            
+
 
         }
 
@@ -133,6 +133,91 @@ namespace ImageTools.Utilities
                 int totalPixels = img.Width * img.Height;
                 return totalPixels - countNonBlackPixels(img);
             }
+        }
+
+        public static Dictionary<int, int> countColor(Bitmap img)
+        {
+            Dictionary<int, int> myDic = new Dictionary<int, int>();
+
+            // Create a new bitmap.
+            Rectangle rect = new Rectangle(0, 0, img.Width, img.Height);
+
+            // Lock the bitmap's bits.
+            System.Drawing.Imaging.BitmapData bmpData =
+              img.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
+              img.PixelFormat);
+            PixelFormat px = img.PixelFormat;
+            // Get the address of the first line.
+            IntPtr ptr = bmpData.Scan0;
+
+            // Declare an array to hold the bytes of the bitmap.
+            int bytes = Math.Abs(bmpData.Stride) * img.Height;
+            byte[] rgbByte = new byte[bytes];
+
+            int bytesPerPixel = bytes / (img.Height * img.Width);
+            //Hardcoded
+            bytesPerPixel = 3;
+            //BitConverter.ToString(byteArray);
+
+            // Copy the RGB values into the array.
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbByte, 0, bytes);
+            //int times = 0;
+            // Set every third value to 255. A 24bpp bitmap will look red.
+            //bmp.Height * 3
+            try
+            {
+                for (int i = 0; i < rgbByte.Length; i += bytesPerPixel)
+                {
+                    //var key = ((rgbByte[i] << 8) + rgbByte[i + 1] << 8) + rgbByte[i + 2];
+                    int key = -1;
+
+
+                    switch (bytesPerPixel)
+                    {
+                        case 1: //8
+                            key = rgbByte[i];
+                            break;
+                        case 2: //16
+                            key = rgbByte[i] << 8 | rgbByte[i + 1];
+                            break;
+                        case 3: //24
+                            key = rgbByte[i] << 16 | rgbByte[i + 1] << 8 | rgbByte[i + 2];
+                            break;
+                        case 4: //32
+                            key = rgbByte[i] << 24 | rgbByte[i + 1] << 16 | rgbByte[i + 2] << 8 | rgbByte[i + 3];
+                            break;
+
+
+                        default:
+                            break;
+                    }
+
+                    if (key != -1 && !myDic.ContainsKey(key))
+                    {
+                        myDic.Add(key, 0);
+                    }
+                    myDic[key] += 1;
+                }
+            }
+            finally
+            {
+                img.UnlockBits(bmpData);
+            }
+
+            // Copy the RGB values back to the bitmap
+            //System.Runtime.InteropServices.Marshal.Copy(rgbByte, 0, ptr, bytes);
+            return myDic;
+        }
+
+        public static Color fromByte(int col)
+        {
+
+            byte r = (byte)(col >> 0);
+            byte g = (byte)(col >> 8);
+            byte b = (byte)(col >> 16);
+
+
+            return Color.FromArgb(r, g, b);
         }
 
     }

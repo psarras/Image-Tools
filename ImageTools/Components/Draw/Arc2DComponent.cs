@@ -10,13 +10,13 @@ using ImageTools.Properties;
 
 namespace ImageTools.Components.Draw
 {
-    public class Arc2D : ImageDrawToolbox
+    public class Arc2DComponent : ImageDrawToolbox
     {
         /// <summary>
         /// Initializes a new instance of the Arc2D class.
         /// </summary>
-        public Arc2D()
-          : base("Arc2D", "Arc2D",
+        public Arc2DComponent()
+          : base("DrawArc2D", "DArc2D",
               "Create an Arc to Draw on an Image")
         {
         }
