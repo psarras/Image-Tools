@@ -146,7 +146,8 @@ namespace ImageTools.Utilities
             System.Drawing.Imaging.BitmapData bmpData =
               img.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
               img.PixelFormat);
-            PixelFormat px = img.PixelFormat;
+            //PixelFormat px = img.PixelFormat;
+
             // Get the address of the first line.
             IntPtr ptr = bmpData.Scan0;
 
@@ -154,10 +155,13 @@ namespace ImageTools.Utilities
             int bytes = Math.Abs(bmpData.Stride) * img.Height;
             byte[] rgbByte = new byte[bytes];
 
-            int bytesPerPixel = bytes / (img.Height * img.Width);
+            // get source bitmap pixel format size
+            int bytesPerPixel = System.Drawing.Bitmap.GetPixelFormatSize(img.PixelFormat);
+            //int bytesPerPixel = bytes / (img.Height * img.Width);
             //Hardcoded
-            bytesPerPixel = 3;
+            bytesPerPixel /= 8;
             //BitConverter.ToString(byteArray);
+
 
             // Copy the RGB values into the array.
             System.Runtime.InteropServices.Marshal.Copy(ptr, rgbByte, 0, bytes);
@@ -209,7 +213,110 @@ namespace ImageTools.Utilities
             return myDic;
         }
 
-        public static Color fromByte(int col)
+        //Helper Method
+        public static Color[] getPixelsArray(Bitmap img)
+        {
+            int numPixels = img.Width * img.Height;
+            Color[] pixels = new Color[numPixels];
+
+            int bytesPerPixel = System.Drawing.Bitmap.GetPixelFormatSize(img.PixelFormat) / 8;
+
+            Rectangle rect = new Rectangle(0, 0, img.Width, img.Height);
+            Bitmap bmg = img.Clone(rect, img.PixelFormat);
+
+            // Lock the bitmap's bits.
+            System.Drawing.Imaging.BitmapData bmpData =
+              bmg.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
+              bmg.PixelFormat);
+
+            // Get the address of the first line.
+
+            IntPtr ptr = bmpData.Scan0;
+
+            // Declare an array to hold the bytes of the bitmap.
+            int bytes = Math.Abs(bmpData.Stride) * bmg.Height;
+            byte[] rgbByte = new byte[bytes];
+
+            // Copy the RGB values into the array.
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbByte, 0, bytes);
+
+            int counter = 0;
+            for (int i = 0; i < rgbByte.Length; i += bytesPerPixel)
+            {
+                int grey, red, green, blue, alpha;
+                switch (bytesPerPixel)
+                {
+                    case 1: //8
+                        //key = rgbByte[i];
+                        grey = (int)rgbByte[i];
+                        pixels[counter] = Color.FromArgb(grey, grey, grey);
+                        break;
+                    case 2: //16
+                        grey = (int)rgbByte[i + 1];
+                        alpha = (int)rgbByte[i];
+                        pixels[counter] = Color.FromArgb(alpha, Color.FromArgb(grey, grey, grey));
+                        break;
+                    case 3: //24
+                        red = (int)rgbByte[i + 2];
+                        green = (int)rgbByte[i + 1];
+                        blue = (int)rgbByte[i];
+                        pixels[counter] = Color.FromArgb(red, green, blue);
+                        break;
+                    case 4: //32
+                        alpha = (int)rgbByte[i + 3];
+                        red = (int)rgbByte[i + 2];
+                        green = (int)rgbByte[i + 1];
+                        blue = (int)rgbByte[i];
+                        pixels[counter] = Color.FromArgb(alpha, red, green, blue);
+                        //key = rgbByte[i] << 24 | rgbByte[i + 1] << 16 | rgbByte[i + 2] << 8 | rgbByte[i + 3];
+                        break;
+                    default:
+                        break;
+
+                        
+                }
+
+                counter++;
+
+            }
+
+            return pixels;
+        }
+
+        static Bitmap setPixelsArray(Color[] pixels, Bitmap img)
+        {
+            return null;
+        }
+
+        public static Color byteGrey(int col)
+        {
+            byte grey = (byte)(col >> 0);
+
+            return Color.FromArgb(grey, grey, grey);
+        }
+
+        public static Color byteGreyAlpha(int col)
+        {
+            byte a = (byte)(col >> 0);
+            byte grey = (byte)(col >> 8);
+
+            return Color.FromArgb(a, grey, grey, grey);
+        }
+
+
+        public static Color byteARGB(int col)
+        {
+
+            byte a = (byte)(col >> 0);
+            byte r = (byte)(col >> 8);
+            byte g = (byte)(col >> 16);
+            byte b = (byte)(col >> 24);
+
+            return Color.FromArgb(a, r, g, b);
+
+        }
+
+        public static Color byteARG(int col)
         {
 
             byte r = (byte)(col >> 0);

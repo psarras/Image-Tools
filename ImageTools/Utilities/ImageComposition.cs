@@ -227,6 +227,56 @@ namespace ImageTools.Utilities
             return finalBitmap;
         }
 
+        /// <summary>
+        /// Get a bunch of image and array them in a grid. Make sure each image would fit one rectagular section that is of equal size with everyone else.
+        /// </summary>
+        /// <param name="imgs">Images to Combine</param>
+        /// <param name="warp">The grid cells in one dimention</param>
+        /// <param name="pad">Padding between the images</param>
+        /// <param name="dir">Array Images Horizontally first</param>
+        /// <returns></returns>
+        public static Bitmap GridImagesRectangular(List<Bitmap> imgs, int warp, int pad, Boolean dir)
+        {
+            //Split Lists into multiple lists
+            var s = ImageUtil.maxSize(imgs);
+            var background = new Bitmap(s.Item1, s.Item2);
+            var resized = imgs.Select(x => ImageShape.MatchMinDimention(background, x));
+            List<IEnumerable<Bitmap>> listOfLists = ImageUtil.splitList(resized.ToList(), warp);
+            //List To place the images for One Direction
+            List<Bitmap> firstPassBitmaps = new List<Bitmap>();
+
+            //For each List
+            foreach (IEnumerable<Bitmap> myList in listOfLists)
+            {
+                List<Bitmap> CastList = myList.ToList();
+                if(CastList.Count == warp)
+                    firstPassBitmaps.Add(ArrayImages(CastList, 1, dir, pad));
+                else
+                {
+                    var imageLess = ArrayImages(CastList, 1, dir, pad);
+                    Bitmap img, joined;
+                    if (dir)
+                    {
+                        img = new Bitmap(CastList[0].Width * warp, CastList[0].Height);
+                        joined = ImageMultiFilter.OverlayImages(new List<Bitmap> { img, imageLess }, 0, 1);
+                    }
+                    else
+                    {
+                        img = new Bitmap(CastList[0].Width, CastList[0].Height * warp);
+                        joined = ImageMultiFilter.OverlayImages(new List<Bitmap> { img, imageLess }, 1, 0);
+                    }
+                    firstPassBitmaps.Add(joined);
+                }
+            }
+
+
+            //Repeat with the other direction
+            List<Bitmap> firstPassBitmapsMod = ImageShape.resizeImage(firstPassBitmaps, dir);
+            Bitmap finalBitmap = ArrayImages(firstPassBitmapsMod, 1, !dir, pad);
+
+            return finalBitmap;
+        }
+
         public static Bitmap GridImages(List<Bitmap> imgs, int warp, int pad, Boolean dir, Color C)
         {
             Bitmap gridImage = GridImages(imgs, warp, pad, dir);

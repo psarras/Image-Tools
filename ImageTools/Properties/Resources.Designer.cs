@@ -19,7 +19,7 @@ namespace ImageTools.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -113,6 +113,16 @@ namespace ImageTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BestFit {
+            get {
+                object obj = ResourceManager.GetObject("BestFit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Blob_Image {
             get {
                 object obj = ResourceManager.GetObject("Blob_Image", resourceCulture);
@@ -163,9 +173,9 @@ namespace ImageTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CropImage_ICON {
+        internal static System.Drawing.Bitmap CropImage {
             get {
-                object obj = ResourceManager.GetObject("CropImage_ICON", resourceCulture);
+                object obj = ResourceManager.GetObject("CropImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,6 +293,16 @@ namespace ImageTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GetPixels {
+            get {
+                object obj = ResourceManager.GetObject("GetPixels", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GridImage_ICON {
             get {
                 object obj = ResourceManager.GetObject("GridImage_ICON", resourceCulture);
@@ -316,16 +336,6 @@ namespace ImageTools.Properties {
         internal static System.Drawing.Bitmap Image_Icon_24 {
             get {
                 object obj = ResourceManager.GetObject("Image_Icon_24", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ImagePadding_ICON_2 {
-            get {
-                object obj = ResourceManager.GetObject("ImagePadding_ICON_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -443,9 +453,19 @@ namespace ImageTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap OverlayImage_ICON_3 {
+        internal static System.Drawing.Bitmap Overlay_Image_Advanced {
             get {
-                object obj = ResourceManager.GetObject("OverlayImage_ICON_3", resourceCulture);
+                object obj = ResourceManager.GetObject("Overlay_Image_Advanced", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PaddingImage {
+            get {
+                object obj = ResourceManager.GetObject("PaddingImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,16 +543,6 @@ namespace ImageTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ResizeBestFit_ICON_3 {
-            get {
-                object obj = ResourceManager.GetObject("ResizeBestFit_ICON_3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap RGB_Image {
             get {
                 object obj = ResourceManager.GetObject("RGB_Image", resourceCulture);
@@ -573,9 +583,9 @@ namespace ImageTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ScaleImage_ICON_4 {
+        internal static System.Drawing.Bitmap Scale_Image_2 {
             get {
-                object obj = ResourceManager.GetObject("ScaleImage_ICON_4", resourceCulture);
+                object obj = ResourceManager.GetObject("Scale_Image_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -616,16 +626,6 @@ namespace ImageTools.Properties {
         internal static System.Drawing.Bitmap Title_Image {
             get {
                 object obj = ResourceManager.GetObject("Title_Image", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Visibility_ICON_ {
-            get {
-                object obj = ResourceManager.GetObject("Visibility_ICON_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

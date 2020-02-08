@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\AppData\Roaming\Grasshopper\Libraries\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
@@ -33,22 +33,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\AForge.NET\IPLab\References\AForge.NET\AForge.dll</HintPath>
+      <HintPath>..\lib\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\AForge.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Math">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\AForge.NET\IPLab\References\AForge.NET\AForge.Math.dll</HintPath>
+      <HintPath>..\lib\AForge.Math.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Vision, Version=2.2.5.0, Culture=neutral, PublicKeyToken=b612fa915eefaa06, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\AForge.NET\Framework\Release\AForge.Vision.dll</HintPath>
+      <HintPath>..\lib\AForge.Vision.dll</HintPath>
     </Reference>
     <Reference Include="RhinoCommon, Version=5.1.30000.13, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Rhinoceros 5 (64-bit)\System\RhinoCommon.dll</HintPath>
+      <HintPath>C:\Program Files\Rhinoceros 5 (64-bit)\System\RhinoCommon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -95,6 +95,7 @@
     <Compile Include="Components\MultiEffects\MaskImageComponent.cs" />
     <Compile Include="Components\MultiEffects\ApplyOperationComponent.cs" />
     <Compile Include="Components\Composition\ArrayImagesComponent.cs" />
+    <Compile Include="Components\Utilities\getPixels.cs" />
     <Compile Include="Components\Utilities\RangeRGBFilterComponent.cs" />
     <Compile Include="Components\Utilities\BestFitImageComponent.cs" />
     <Compile Include="Components\Effects\BlurImageComponent.cs" />
@@ -160,6 +161,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\Scale_Image_2.png" />
     <None Include="Resources\Threshold_Image.png" />
     <None Include="Resources\Title_Image.png" />
     <None Include="Resources\Text_Image.png" />
@@ -202,6 +204,9 @@
     <None Include="Resources\Adjust_Image.png" />
     <None Include="Resources\Blob_Image.png" />
     <None Include="Resources\Gen_Image.png" />
+    <None Include="Resources\CropImage.png" />
+    <None Include="Resources\BestFit.png" />
+    <None Include="Resources\GetPixels.png" />
     <Content Include="Resources\GridImage_ICON.png" />
     <None Include="Resources\LoadImage.png" />
     <None Include="Resources\Hatch_Image.png" />
@@ -228,6 +233,8 @@
     <None Include="Resources\NewMulti_Gradient.png" />
     <None Include="Resources\New_Color.png" />
     <None Include="Resources\New_Gradient.png" />
+    <None Include="Resources\PaddingImage.png" />
+    <None Include="Resources\Overlay_Image_Advanced.png" />
     <Content Include="Resources\SaveImage_ICON.png" />
   </ItemGroup>
   <ItemGroup>

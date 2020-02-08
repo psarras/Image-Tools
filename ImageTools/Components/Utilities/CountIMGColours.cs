@@ -50,9 +50,27 @@ namespace ImageTools.Components.Utilities
             List<int> frequency = new List<int>();
             List<Color> colors = new List<Color>();
 
+            int bytesPerPixel = System.Drawing.Bitmap.GetPixelFormatSize(img.PixelFormat);
+            bytesPerPixel /= 8;
+
             foreach (KeyValuePair<int, int> pair in dictionary)
             {
-                colors.Add(ImageUtil.fromByte(pair.Key));
+                switch (bytesPerPixel)
+                {
+                    case 2:
+                        colors.Add(ImageUtil.byteGreyAlpha(pair.Key));
+                        break;
+                    case 3:
+                        colors.Add(ImageUtil.byteARG(pair.Key));
+                        break;
+                    case 4:
+                        colors.Add(ImageUtil.byteARGB(pair.Key));
+                        break;
+                    default:
+                        colors.Add(ImageUtil.byteARG(pair.Key));
+                        break;
+                }
+                
                 frequency.Add(pair.Value);
             }
 

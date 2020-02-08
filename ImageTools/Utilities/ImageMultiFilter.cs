@@ -246,5 +246,17 @@ namespace ImageTools.Utilities
             return below;
         }
 
+        public static Bitmap ColorImage(int Width, int Height, int DPIx, int DPIy, Color color)
+        {
+            Bitmap img = new Bitmap(Width, Height);
+            img.SetResolution(DPIx, DPIy);
+
+            Graphics gIMG = Graphics.FromImage(img);
+            System.Drawing.SolidBrush myBrush = new SolidBrush(color);
+
+            gIMG.FillRectangle(myBrush, new Rectangle(0, 0, img.Width, img.Height));
+
+            return img;
+        }
     }
 }

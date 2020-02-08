@@ -169,6 +169,34 @@ namespace ImageTools.Utilities
             return myListMod;
         }
 
+        public static Bitmap MatchMinDimention(Bitmap reference, Bitmap toMatch)
+        {
+            float scaleX = reference.Width / (float)toMatch.Width;
+            float scaleY = reference.Height / (float)toMatch.Height;
+
+            var newHeight = scaleX * toMatch.Height;
+
+            var newWidth = scaleY * toMatch.Width;
+            Bitmap BitmapNew;
+            if(newHeight > reference.Height)
+            {
+                BitmapNew = new Bitmap(toMatch, (int)(scaleY * toMatch.Width), (int)( scaleY * toMatch.Height));
+            }
+            else
+            {
+                BitmapNew = new Bitmap(toMatch, (int)(scaleX * toMatch.Width), (int)(scaleX * toMatch.Height));
+            }
+            var backGround = new Bitmap(reference.Width, reference.Height);
+            return ImageMultiFilter.OverlayImages(new List<Bitmap> { backGround, BitmapNew }, 1, 1);
+        }
+
+        public static List<Bitmap> ResizeSquare(List<Bitmap> imgs)
+        {
+            var myImgs = new List<Bitmap>();
+            var sizes = ImageUtil.maxSize(imgs);
+            return imgs.Select(x => new Bitmap(x, new Size(sizes.Item1, sizes.Item2))).ToList();
+        }
+
         public static Bitmap BestFitImage(Bitmap img, int width, int height)
         {
             Bitmap myImg = (Bitmap)img;
